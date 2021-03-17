@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { NODE_ENV } = require('./config');
 
 function errorHandler(error, req, res, next) {
