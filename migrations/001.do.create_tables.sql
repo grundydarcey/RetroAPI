@@ -36,7 +36,5 @@ CREATE TABLE IF NOT EXISTS planets (
   seventeenth_enter_date DATE,
   seventeenth_exit_date DATE,
   eighteenth_enter_date DATE,
-  eighteenth_exit_date DATE/*,
-  nineteenth_enter_date DATE,
-  nineteenth_exit_date DATE*/
+  eighteenth_exit_date DATE
 );
