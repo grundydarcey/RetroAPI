@@ -2,6 +2,7 @@ const PlanetsService = {
   getAllPlanets(knex) {
     return knex
       .select('*')
+
       .from('planets');
   },
 
