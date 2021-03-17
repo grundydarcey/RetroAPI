@@ -5,6 +5,7 @@ function errorHandler(error, req, res, next) {
   if (NODE_ENV === 'production') {
     response = { error: { message: 'Server error'} };
   } else {
+    // eslint-disable-next-line no-console
     console.error(error);
     response = { message: error.message, error };
   }

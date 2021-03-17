@@ -5,19 +5,13 @@ const PlanetsService = {
       .from('planets');
   },
 
-  //maybe comment insertplanets out
-  insertPlanets(knex, newPlanet) {
+  getById(knex, id) {
     return knex
-      .insert(newPlanet)
-      .into('planets')
-      .returning('*')
-      .then(rows => {
-        return rows[0];
-      });
-  },
-
-  
-
+      .from('planets')
+      .select('*')
+      .where('id', id)
+      .first();
+  }
 };
 
 module.exports = PlanetsService;

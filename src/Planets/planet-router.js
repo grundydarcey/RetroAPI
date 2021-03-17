@@ -1,8 +1,10 @@
+/* eslint-disable quotes */
 const express = require('express');
 const xss = require('xss');
-const path = require('path');
+//const path = require('path');
 const PlanetsService = require('./planet-services');
 const PlanetsRouter = express.Router();
+//const jsonParser = express.json();
 
 const serializePlanet = planet => ({
   id: planet.id,
@@ -54,6 +56,28 @@ PlanetsRouter
         res.json(planets.map(serializePlanet));
       })
       .catch(next);
-  })
+  });
 
+PlanetsRouter
+  .route('/:planetId')
+  .all((req, res, next) => {
+    PlanetsService.getById(
+      req.app.get('db'),
+      req.params.planetId
+    )
+      .then(planet => {
+        if (!planet) {
+          return res.status(404).json({
+            error: { message: `Planet doesn't exist` }
+          });
+        }
+        res.planet = planet;
+        next();
+      })
+      .catch(next);
+  })
+  .get((req, res, next) => {
+    res.json(serializePlanet(res.planet));
+  });
+    
 module.exports = PlanetsRouter;
