@@ -16,6 +16,10 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
+app.get('/planets', (req, res, next) => {
+  res.send('all planets');
+});
+
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
