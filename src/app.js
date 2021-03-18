@@ -7,11 +7,11 @@ const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 const PlanetsRouter = require('./Planets/planet-router');
 const errorHandler = require('./error-handler');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 
 const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
