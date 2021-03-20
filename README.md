@@ -13,7 +13,13 @@ Links to my project:
 
 ## Endpoints
 
---endpoints here--
+### /api/planets
+GET requests
+Used for returning information including planet name and dates entering and dates exiting retrograde.
+
+### /api/planets/:planetId
+GET requests
+Used for returning information specific to one planet by its individual ID. Also returns the planet name and retrograde dates.
 
 ## Stack Used in this Project
 
